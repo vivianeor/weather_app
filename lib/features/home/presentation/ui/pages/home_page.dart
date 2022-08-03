@@ -1,9 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:lottie/lottie.dart';
-
-//https://dribbble.com/shots/15661680-Weather-App
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,14 +10,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _todayForecastVisible = true;
-  double _height = 600;
+  final double _height = 600;
   bool _isSmallSize = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _isSmallSize = !_isSmallSize;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           _currentWeather(_height, _isSmallSize),
-         _isSmallSize ? _currentWeatherHourly(_height) :
+          _isSmallSize ? _currentWeatherHourly(_height) :
           _weatherForecastNextDays(_height)
         ],
       ),
@@ -158,7 +148,9 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Hoje', style: TextStyle(fontSize: 26,
+              const Text(
+                  'Hoje',
+                  style: TextStyle(fontSize: 26,
                   color: Colors.white, fontWeight: FontWeight.w600)),
               GestureDetector(
                 onTap: (){
@@ -181,34 +173,40 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              padding: EdgeInsets.zero,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return Container(
-                  width: 120,
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.white, width: .5)
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('23º', style: TextStyle(fontSize: 22,
-                          color: Colors.white)),
-                      Lottie.asset('assets/animations/sunny.json', width: 60),
-                      const Text('10:00', style: TextStyle(fontSize: 18,
-                          color: Colors.white)),
-                    ],
-                  ),
-                );
-              }
+        SizedBox(
+          height: MediaQuery.of(context).size.height * .45,
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .15,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: 140,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white, width: .5)
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text('23º', style: TextStyle(fontSize: 22,
+                                color: Colors.white)),
+                            Lottie.asset('assets/animations/sunny.json', width: 60),
+                            const Text('10:00', style: TextStyle(fontSize: 18,
+                                color: Colors.white)),
+                          ],
+                        ),
+                      );
+                    }
+                ),
+              ),
+            ],
           ),
         )
       ],
@@ -223,7 +221,6 @@ class _HomePageState extends State<HomePage> {
           child: GestureDetector(
             onTap: (){
               setState(() {
-                //height = 550;
                 _todayForecastVisible = !_todayForecastVisible;
               });
             },
@@ -244,8 +241,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        Container(
-          color: Colors.red,
+        SizedBox(
           height: MediaQuery.of(context).size.height * .45,
           child: ListView.builder(
             padding: EdgeInsets.zero,
