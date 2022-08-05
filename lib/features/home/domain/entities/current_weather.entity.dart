@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class WeatherResult extends Equatable {
+class CurrentWeatherResult extends Equatable {
   final Coordinates? coordinates;
   final List<Weather>? weatherList;
   final String? stations;
@@ -15,7 +15,7 @@ class WeatherResult extends Equatable {
   final String? name;
   final int? cod;
 
-  const WeatherResult({
+  const CurrentWeatherResult({
     this.coordinates,
     this.weatherList,
     this.stations,
