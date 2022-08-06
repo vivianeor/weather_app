@@ -34,19 +34,19 @@ class CurrentWeatherModel extends CurrentWeatherResult {
   factory CurrentWeatherModel.fromMap(Map<dynamic, dynamic> map) {
     return CurrentWeatherModel(
       //TODO ver esse tipo
-      coordinates: map['coordinates'] ?? '',
-      weatherList: map['weatherList'] ?? '',
-      stations: map['stations'] ?? '',
-      mainInformation: map['mainInformation'] ?? '',
-      visibility: map['visibility'] ?? '',
-      wind: map['wind'] ?? '',
-      clouds: map['clouds'] ?? '',
-      dt: map['dt'] ?? '',
-      sys: map['sys'] ?? '',
+      coordinates: CoordinatesModel.fromMap(map['coordinates']),
+      weatherList: map['weatherList'] ,
+      stations: map['stations'],
+      mainInformation: MainInformationModel.fromMap(map['mainInformation']),
+      visibility: map['visibility'],
+      wind: WindModel.fromMap(map['wind']),
+      clouds: CloudsModel.fromMap(map['clouds']),
+      dt: map['dt'],
+      sys: SysModel.fromMap(map['sys']),
       timezone: map['timezone'],
       id: map['id'],
-      name: map['name'] ?? '',
-      cod: map['cod'] ?? '',
+      name: map['name'],
+      cod: map['cod'],
     );
   }
 
@@ -80,8 +80,8 @@ class CoordinatesModel extends Coordinates {
 
   factory CoordinatesModel.fromMap(Map<dynamic, dynamic> map) {
     return CoordinatesModel(
-      lon: map['lon'] ?? '',
-      lat: map['lat'] ?? '',
+      lon: map['lon'],
+      lat: map['lat'],
     );
   }
 
@@ -108,10 +108,10 @@ class WeatherModel extends Weather {
 
   factory WeatherModel.fromMap(Map<dynamic, dynamic> map) {
     return WeatherModel(
-      id: map['id'] ?? '',
-      main: map['main'] ?? '',
-      description: map['description'] ?? '',
-      icon: map['icon'] ?? '',
+      id: map['id'],
+      main: map['main'],
+      description: map['description'],
+      icon: map['icon'],
     );
   }
 
@@ -144,12 +144,12 @@ class MainInformationModel extends MainInformation {
 
   factory MainInformationModel.fromMap(Map<dynamic, dynamic> map) {
     return MainInformationModel(
-      temp: map['temp'] ?? '',
-      feelsLike: map['feelsLike'] ?? '',
-      tempMin: map['tempMin'] ?? '',
-      temMax: map['tempMax'] ?? '',
-      pressure: map['pressure'] ?? '',
-      humidity: map['humidity'] ?? '',
+      temp: map['temp'],
+      feelsLike: map['feelsLike'],
+      tempMin: map['tempMin'],
+      temMax: map['tempMax'],
+      pressure: map['pressure'],
+      humidity: map['humidity'],
     );
   }
 
@@ -176,8 +176,8 @@ class WindModel extends Wind {
 
   factory WindModel.fromMap(Map<dynamic, dynamic> map) {
     return WindModel(
-      speed: map['speed'] ?? '',
-      deg: map['deg'] ?? '',
+      speed: map['speed'],
+      deg: map['deg'],
     );
   }
 
@@ -198,7 +198,7 @@ class CloudsModel extends Clouds {
 
   factory CloudsModel.fromMap(Map<dynamic, dynamic> map) {
     return CloudsModel(
-      all: map['all'] ?? '',
+      all: map['all'],
     );
   }
 
@@ -228,12 +228,12 @@ class SysModel extends Sys {
 
   factory SysModel.fromMap(Map<dynamic, dynamic> map) {
     return SysModel(
-      type: map['type'] ?? '',
-      id: map['id'] ?? '',
-      message: map['message'] ?? '',
-      country: map['country'] ?? '',
-      sunrise: map['sunrise'] ?? '',
-      sunset: map['sunset'] ?? '',
+      type: map['type'],
+      id: map['id'],
+      message: map['message'],
+      country: map['country'],
+      sunrise: map['sunrise'],
+      sunset: map['sunset'],
     );
   }
 
