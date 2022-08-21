@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:weather_app/features/home/presentation/controllers/home_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,9 +10,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late HomeController _homeController;
   bool _todayForecastVisible = true;
   final double _height = 600;
   bool _isSmallSize = false;
+
+  @override
+  void initState() {
+   // _homeController = HomeCo
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

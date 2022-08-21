@@ -8,7 +8,7 @@ class CurrentWeatherUseCaseImpl implements ICurrentWeatherUseCase {
   CurrentWeatherUseCaseImpl(this._repository);
 
   @override
-  Future<Either<Error, CurrentWeatherResult>> getCurrentWeather({required int? lat, required int? lon}) {
+  Future<Either<Error, CurrentWeatherResult>> getCurrentWeather({required double? lat, required double? lon}) {
     return _repository.getCurrentWeather(lat: lat, lon: lon);
   }
 

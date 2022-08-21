@@ -7,7 +7,7 @@ import 'package:weather_app/features/home/domain/entities/current_weather.entity
 class CurrentWeatherDatasourceImplApi implements ICurrentWeatherDatasource {
   @override
   Future<Either<Error, CurrentWeatherResult>> getCurrentWeather(
-      {required int? lat, required int? lon}) async {
+      {required double? lat, required double? lon}) async {
     try {
       var _authority = 'https://api.openweathermap.org';
       var _path = '/data/2.5/weather';

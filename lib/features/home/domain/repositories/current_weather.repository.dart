@@ -3,7 +3,7 @@ import 'package:weather_app/features/home/domain/entities/current_weather.entity
 
 abstract class ICurrentWeatherRepository {
   Future<Either<Error, CurrentWeatherResult>> getCurrentWeather ({
-    required int? lat,
-    required int? lon,
+    required double? lat,
+    required double? lon,
   });
 }

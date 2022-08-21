@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 
 abstract class ICurrentWeatherUseCase {
   Future<Either<Error, CurrentWeatherResult>> getCurrentWeather ({
-   required int? lat,
-   required int? lon,
+   required double? lat,
+   required double? lon,
 });
 }

@@ -8,7 +8,7 @@ class ICurrentWeatherRepositoryImpl implements ICurrentWeatherRepository {
   ICurrentWeatherRepositoryImpl(this._datasource);
 
   @override
-  Future<Either<Error, CurrentWeatherResult>> getCurrentWeather({required int? lat, required int? lon}) {
+  Future<Either<Error, CurrentWeatherResult>> getCurrentWeather({required double? lat, required double? lon}) {
     return _datasource.getCurrentWeather(lat: lat, lon: lon);
   }
 
