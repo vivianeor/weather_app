@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'features/home/presentation/ui/pages/home_page.dart';
+import 'features/home/presentation/ui/pages/home/home_page.dart';
 
 void main() {
   runApp(const WeatherApp());
