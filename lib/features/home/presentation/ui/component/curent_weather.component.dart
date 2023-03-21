@@ -12,7 +12,7 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('17'),
+        const Text('17'),
         Text('ºC'),
         Column(
           children: [
