@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
+        children: const [
           CurrentWeatherComponent(),
           InfoCurrentWeatherComponent(),
           HourlyWeatherComponent()
