@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:weather_app/core/enums/colors.dart';
+import 'package:weather_app/features/home/presentation/ui/atoms/text_label_bold.dart';
+
+import '../atoms/text_label.dart';
 
 class CurrentWeatherComponent extends StatefulWidget {
   const CurrentWeatherComponent({Key? key}) : super(key: key);
@@ -15,28 +17,15 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
     return Row(
       children: [
         Text('17', style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 50))),
-        Text('ºC', style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 10))),
+        TextLabel(label: 'ºC'),
         Column(
           children: [
             Icon(Icons.ac_unit),
-            Text(
-              'ensolarado',
-              style: GoogleFonts.poppins(
-                  color: ColorsEnum().grey, textStyle: const TextStyle(fontSize: 20)),
-            ),
+            TextLabelBold(label: 'ensolarado'),
             Row(
               children: [
-                Text(
-                  'feels like',
-                  style: GoogleFonts.poppins(
-                      color: ColorsEnum().grey, textStyle: const TextStyle(fontSize: 20)),
-                ),
-                Text(
-                  '16º',
-                  style: GoogleFonts.poppins(
-                      textStyle:
-                          const TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
-                ),
+                TextLabel(label: 'feels like'),
+                TextLabelBold(label: '16º'),
               ],
             ),
           ],

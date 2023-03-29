@@ -17,9 +17,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Column(
         children: [
-          Text('san franscisco', style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 20))),
+          Text('san franscisco',
+              style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 20))),
           CurrentWeatherComponent(),
+          const Divider(),
           InfoCurrentWeatherComponent(),
+          const Divider(),
           HourlyWeatherComponent()
         ],
       ),

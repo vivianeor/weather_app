@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../atoms/text_label.dart';
+import '../atoms/text_label_bold.dart';
 
 class HourlyWeatherComponent extends StatefulWidget {
   const HourlyWeatherComponent({Key? key}) : super(key: key);
@@ -15,25 +17,25 @@ class _HourlyWeatherComponentState extends State<HourlyWeatherComponent> {
         Row(
           children: [
             Icon(Icons.ac_unit),
-            Text('24º'),
+            TextLabel(label: '24º'),
             Icon(Icons.ac_unit),
-            Text('11º')
+            TextLabel(label: '11º'),
           ],
         ),
         Row(
           children: [
-            Text('humidade'),
-            Text('63%'),
-            Text('vento'),
-            Text('5 m/s'),
+            TextLabel(label: 'humidade'),
+            TextLabelBold(label:'63%'),
+            TextLabel(label: 'vento'),
+            TextLabelBold(label:'5 m/s'),
           ],
         ),
         Row(
           children: [
-            Text('uv index'),
-            Text('2'),
-            Text('pressão'),
-            Text('764'),
+            TextLabel(label:'uv index'),
+            TextLabelBold(label:'2'),
+            TextLabel(label:'pressão'),
+            TextLabelBold(label:'764'),
           ],
         )
       ],
