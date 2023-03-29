@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/features/home/presentation/ui/component/curent_weather.component.dart';
 import 'package:weather_app/features/home/presentation/ui/component/hourly_weather.component.dart';
 import 'package:weather_app/features/home/presentation/ui/component/info_current_weather.component.dart';
@@ -15,7 +16,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: const [
+        children: [
+          Text('san franscisco', style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 20))),
           CurrentWeatherComponent(),
           InfoCurrentWeatherComponent(),
           HourlyWeatherComponent()
