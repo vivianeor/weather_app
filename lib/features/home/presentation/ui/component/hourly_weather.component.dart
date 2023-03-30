@@ -10,6 +10,6 @@ class InfoCurrentWeatherComponent extends StatefulWidget {
 class _InfoCurrentWeatherComponentState extends State<InfoCurrentWeatherComponent> {
   @override
   Widget build(BuildContext context) {
-    return ListView();
+    return Container();
   }
 }

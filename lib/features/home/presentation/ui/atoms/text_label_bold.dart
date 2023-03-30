@@ -14,7 +14,7 @@ class TextLabelBold extends StatelessWidget {
     return Text(
       label,
       style: GoogleFonts.poppins(
-          textStyle: const TextStyle(fontSize: 50), fontWeight: FontWeight.w800),
+          textStyle: const TextStyle(fontSize: 15), fontWeight: FontWeight.w800),
     );
   }
 }

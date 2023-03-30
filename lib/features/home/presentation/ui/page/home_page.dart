@@ -15,16 +15,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Text('san franscisco',
-              style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 20))),
-          CurrentWeatherComponent(),
-          const Divider(),
-          InfoCurrentWeatherComponent(),
-          const Divider(),
-          HourlyWeatherComponent()
-        ],
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          children: [
+            Text('san franscisco',
+                style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 20))),
+            CurrentWeatherComponent(),
+            const Divider(),
+            InfoCurrentWeatherComponent(),
+            const Divider(),
+            HourlyWeatherComponent()
+          ],
+        ),
       ),
     );
   }

@@ -14,23 +14,42 @@ class CurrentWeatherComponent extends StatefulWidget {
 class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text('17', style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 50))),
-        TextLabel(label: 'ºC'),
-        Column(
-          children: [
-            Icon(Icons.ac_unit),
-            TextLabelBold(label: 'ensolarado'),
-            Row(
-              children: [
-                TextLabel(label: 'feels like'),
-                TextLabelBold(label: '16º'),
-              ],
-            ),
-          ],
-        )
-      ],
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      color: Colors.red,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(
+                color: Colors.blue,
+                child: Text(
+                  '17',
+                  textAlign: TextAlign.left,
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(fontSize: 170),
+                  ),
+                ),
+              ),
+              TextLabel(label: 'ºC'),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(Icons.ac_unit),
+              TextLabelBold(label: 'ensolarado'),
+              Row(
+                children: [
+                  TextLabel(label: 'feels like'),
+                  TextLabelBold(label: '16º'),
+                ],
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
