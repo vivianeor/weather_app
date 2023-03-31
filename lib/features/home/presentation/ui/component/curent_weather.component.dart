@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weather_app/core/enums/colors.dart';
 import 'package:weather_app/features/home/presentation/ui/atoms/text_label_bold.dart';
 
 import '../atoms/text_label.dart';
@@ -16,33 +17,34 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      color: Colors.red,
+      margin: const EdgeInsets.symmetric(horizontal: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                color: Colors.blue,
-                child: Text(
-                  '17',
-                  textAlign: TextAlign.left,
-                  style: GoogleFonts.poppins(
-                    textStyle: const TextStyle(fontSize: 170),
-                  ),
+              Text(
+                '17',
+                style: GoogleFonts.poppins(
+                  textStyle: const TextStyle(fontSize: 170, height: 1.0),
                 ),
               ),
-              TextLabel(label: 'ºC'),
+              const SizedBox(width: 10),
+              const TextLabel(label: 'ºC'),
             ],
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(Icons.ac_unit),
-              TextLabelBold(label: 'ensolarado'),
+              Icon(Icons.ac_unit, color: ColorsEnum.grey),
+              const SizedBox(height: 15),
+              TextLabel(label: 'ensolarado'),
+              const SizedBox(height: 15),
               Row(
                 children: [
                   TextLabel(label: 'feels like'),
+                  const SizedBox(width: 10),
                   TextLabelBold(label: '16º'),
                 ],
               ),
