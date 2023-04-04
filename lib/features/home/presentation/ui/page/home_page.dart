@@ -24,9 +24,9 @@ class _HomePageState extends State<HomePage> {
                 style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 20))),
             CurrentWeatherComponent(),
             const Divider(),
-            InfoCurrentWeatherComponent(),
+            HourlyWeatherComponent(),
             const Divider(),
-            HourlyWeatherComponent()
+            InfoCurrentWeatherComponent(),
           ],
         ),
       ),
