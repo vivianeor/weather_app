@@ -17,7 +17,7 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -27,28 +27,31 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
               Text(
                 '17',
                 style: GoogleFonts.poppins(
-                  textStyle: const TextStyle(fontSize: 170, height: 1.0),
+                  textStyle: const TextStyle(fontSize: 190, height: 1.0),
                 ),
               ),
               const SizedBox(width: 10),
               const TextLabel(label: 'ºC'),
             ],
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(Icons.ac_unit, color: ColorsEnum.grey),
-              const SizedBox(height: 15),
-              TextLabel(label: 'ensolarado'),
-              const SizedBox(height: 15),
-              Row(
-                children: [
-                  TextLabel(label: 'feels like'),
-                  const SizedBox(width: 10),
-                  TextLabelBold(label: '16º'),
-                ],
-              ),
-            ],
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .22,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Icon(Icons.ac_unit, color: ColorsEnum.grey, size: 35),
+                const SizedBox(height: 25),
+                TextLabel(label: 'ensolarado'),
+                const SizedBox(height: 25),
+                Row(
+                  children: [
+                    TextLabel(label: 'feels like'),
+                    const SizedBox(width: 10),
+                    TextLabelBold(label: '16º'),
+                  ],
+                ),
+              ],
+            ),
           )
         ],
       ),

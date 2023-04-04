@@ -15,13 +15,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
           children: [
-            Text('san franscisco',
-                style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 20))),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 80),
+              child: Text('san franscisco',
+                  style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 18))),
+            ),
             CurrentWeatherComponent(),
             const Divider(),
             HourlyWeatherComponent(),
