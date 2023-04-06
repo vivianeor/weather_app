@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import '../atoms/text_label.dart';
 import '../atoms/text_label_bold.dart';
 
-class HourlyWeatherComponent extends StatefulWidget {
-  const HourlyWeatherComponent({Key? key}) : super(key: key);
+class InfoCurrentWeatherComponent extends StatefulWidget {
+  const InfoCurrentWeatherComponent({Key? key}) : super(key: key);
 
   @override
-  State<HourlyWeatherComponent> createState() => _HourlyWeatherComponentState();
+  State<InfoCurrentWeatherComponent> createState() => _InfoCurrentWeatherComponentState();
 }
 
-class _HourlyWeatherComponentState extends State<HourlyWeatherComponent> {
+class _InfoCurrentWeatherComponentState extends State<InfoCurrentWeatherComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
