@@ -13,17 +13,18 @@ class _HourlyWeatherComponentState extends State<HourlyWeatherComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
-      width: 100,
+      height: 60,
+      margin: const EdgeInsets.symmetric(vertical: 15),
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 10,
           itemBuilder: (context, i) {
             return Container(
-             margin: EdgeInsets.symmetric(horizontal: 20),
+             margin: const EdgeInsets.only(right: 10, left: 20),
               child: Column(
                 children: [
                   TextLabel(label: 'agora'),
+                  SizedBox(height: 5),
                   TextLabelBold(label: '17º')
                 ],
               ),
