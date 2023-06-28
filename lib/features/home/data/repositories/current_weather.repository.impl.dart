@@ -5,11 +5,12 @@ import 'package:weather_app/features/home/domain/repositories/current_weather.re
 
 class ICurrentWeatherRepositoryImpl implements ICurrentWeatherRepository {
   final ICurrentWeatherDatasource _datasource;
+
   ICurrentWeatherRepositoryImpl(this._datasource);
 
   @override
-  Future<Either<Error, CurrentWeatherResult>> getCurrentWeather({required double? lat, required double? lon}) {
+  Future<Either<Error, CurrentWeatherResult>> getCurrentWeather(
+      {required double? lat, required double? lon}) {
     return _datasource.getCurrentWeather(lat: lat, lon: lon);
   }
-
 }
