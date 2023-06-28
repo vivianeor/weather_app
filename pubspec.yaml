@@ -12,7 +12,6 @@ dependencies:
   equatable: ^2.0.3
   dartz: ^0.10.1
   http: ^0.13.5
-  mobx: ^2.0.7
   flutter_mobx: ^2.0.6
   mobx_codegen: ^2.0.7
   build_runner: ^2.2.0

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'core/services/providers.dart';
 import 'features/home/presentation/ui/page/home_page.dart';
 
 void main() {
+  setUpProviders();
   runApp(const WeatherApp());
 }
 
