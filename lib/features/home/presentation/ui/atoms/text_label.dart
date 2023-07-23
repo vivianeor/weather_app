@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/core/enums/colors.dart';
 
 class TextLabel extends StatelessWidget {
-  final String label;
+  final String? label;
 
   const TextLabel({
     Key? key,
@@ -13,7 +13,7 @@ class TextLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      label,
+      label ?? '',
       style: GoogleFonts.poppins(
         textStyle: const TextStyle(fontSize: 16),
         color: ColorsEnum.grey,

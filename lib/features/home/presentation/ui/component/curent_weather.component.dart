@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/core/enums/colors.dart';
+import 'package:weather_app/features/home/domain/entities/current_weather.entity.dart';
 import 'package:weather_app/features/home/presentation/ui/atoms/text_label_bold.dart';
 
 import '../atoms/text_label.dart';
 
 class CurrentWeatherComponent extends StatefulWidget {
-  const CurrentWeatherComponent({Key? key}) : super(key: key);
+  CurrentWeatherResult? result;
+
+  CurrentWeatherComponent({Key? key, required this.result}) : super(key: key);
 
   @override
   State<CurrentWeatherComponent> createState() => _CurrentWeatherComponentState();
@@ -25,7 +28,7 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '17',
+                widget.result?.mainInformation?.temp.toString() ?? '',
                 style: GoogleFonts.poppins(
                   textStyle: const TextStyle(fontSize: 190, height: 1.0),
                 ),
@@ -41,7 +44,9 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
               children: [
                 Icon(Icons.ac_unit, color: ColorsEnum.grey, size: 35),
                 const SizedBox(height: 25),
-                TextLabel(label: 'ensolarado'),
+                Visibility(
+                  child: TextLabel(label: widget.result?.weatherList![0].description),
+                ),
                 const SizedBox(height: 25),
                 Row(
                   children: [

@@ -17,7 +17,7 @@ class CurrentWeatherDatasourceImplApi implements ICurrentWeatherDatasource {
         'appid': '05b316695a6e5c9bc50b5b2e1350438e'
       };
       var uri = Uri.https(_authority, _path, _params);
-      dynamic _result = await http.get(uri);
+      dynamic _result = await http.get(Uri.parse(uri.toString()));
 
       if (_result.statusCode == 200){
         final CurrentWeatherResult currentWeatherResult = CurrentWeatherResultModel.fromMap(_result.body);
@@ -30,4 +30,7 @@ class CurrentWeatherDatasourceImplApi implements ICurrentWeatherDatasource {
       return Left<Error, CurrentWeatherResult>(Error());
     }
   }
+  //rever o problema com o uri
+//https://docs.flutter.dev/cookbook/networking/fetch-data
+//https://stackoverflow.com/questions/66619895/dart-unhandled-exception-formatexception-invalid-radix-10-number-at-character
 }
