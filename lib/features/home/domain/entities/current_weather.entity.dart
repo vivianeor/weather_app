@@ -1,24 +1,22 @@
-import 'package:equatable/equatable.dart';
+class CurrentWeatherEntity{
+  Coordinates? coordinates;
+  List<Weather>? weatherList;
+  String? base;
+  MainInformation? mainInformation;
+  int? visibility;
+  Wind? wind;
+  Clouds? clouds;
+  int? dt;
+  Sys? sys;
+  int? timezone;
+  int? id;
+  String? name;
+  int? cod;
 
-class CurrentWeatherResult extends Equatable {
-  final Coordinates? coordinates;
-  final List<Weather>? weatherList;
-  final String? stations;
-  final MainInformation? mainInformation;
-  final int? visibility;
-  final Wind? wind;
-  final Clouds? clouds;
-  final int? dt;
-  final Sys? sys;
-  final int? timezone;
-  final int? id;
-  final String? name;
-  final int? cod;
-
-  const CurrentWeatherResult({
+  CurrentWeatherEntity({
     this.coordinates,
     this.weatherList,
-    this.stations,
+    this.base,
     this.mainInformation,
     this.visibility,
     this.wind,
@@ -30,117 +28,84 @@ class CurrentWeatherResult extends Equatable {
     this.name,
     this.cod,
   });
-
-  @override
-  List<Object?> get props => <Object?> [
-    coordinates,
-    weatherList,
-    stations,
-    mainInformation,
-    visibility,
-    wind,
-    clouds,
-    dt,
-    sys,
-    timezone,
-    id,
-    name,
-    cod
-  ];
 }
 
-class Coordinates extends Equatable {
-  final int? lon;
-  final int? lat;
+class Coordinates  {
+  double? lon;
+  double? lat;
 
-  const Coordinates({
+  Coordinates({
    this.lat,
    this.lon,
   });
-
-  @override
-  List<Object?> get props => <Object?>[lat, lon];
 }
 
-class Weather extends Equatable {
-  final int? id;
-  final String? main;
-  final String? description;
-  final String? icon;
+class Weather {
+  int? id;
+  String? main;
+  String? description;
+  String? icon;
 
-  const Weather({
+  Weather({
    this.id,
    this.main,
    this.description,
    this.icon,
   });
-
-  @override
-  List<Object?> get props => <Object?>[id, main, description, icon];
 }
 
-class MainInformation extends Equatable {
-  final int? temp;
-  final int? feelsLike;
-  final int? tempMin;
-  final int? temMax;
-  final int? pressure;
-  final int? humidity;
+class MainInformation {
+  double? temp;
+  double? feelsLike;
+  double? tempMin;
+  double? temMax;
+  int? pressure;
+  int? humidity;
+  int? seaLevel;
+  int? grndLevel;
 
-  const MainInformation({
+  MainInformation({
     this.temp,
     this.feelsLike,
     this.tempMin,
     this.temMax,
     this.pressure,
     this.humidity,
+    this.grndLevel,
+    this.seaLevel
   });
 
-  @override
-  List<Object?> get props => <Object?>[temp, feelsLike, tempMin, temMax, pressure, humidity];
 }
 
-class Wind extends Equatable {
-  final double? speed;
-  final int? deg;
+class Wind {
+  double? speed;
+  int? deg;
+  double? gust;
 
-  const Wind({
+  Wind({
     this.speed,
     this.deg,
+    this.gust,
   });
-
-  @override
-  List<Object?> get props => <Object?>[speed, deg];
 }
 
-class Clouds extends Equatable {
-  final int? all;
+class Clouds {
+  int? all;
 
-  const Clouds({
+  Clouds({
     this.all,
   });
 
-  @override
-  List<Object?> get props => <Object?>[all];
 }
 
-class Sys extends Equatable {
-  final int? type;
-  final int? id;
-  final double? message;
-  final String? country;
-  final String? sunrise;
-  final String? sunset;
+class Sys {
+  String? country;
+  String? sunrise;
+  String? sunset;
 
-  const Sys({
-    this.type,
-    this.id,
-    this.message,
+  Sys({
     this.country,
     this.sunrise,
     this.sunset,
   });
-
-  @override
-  List<Object?> get props => <Object?>[type, id, message, country, sunset, sunset];
 }

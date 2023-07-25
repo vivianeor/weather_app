@@ -7,7 +7,7 @@ import 'package:weather_app/features/home/presentation/ui/atoms/text_label_bold.
 import '../atoms/text_label.dart';
 
 class CurrentWeatherComponent extends StatefulWidget {
-  CurrentWeatherResult? result;
+  CurrentWeatherEntity? result;
 
   CurrentWeatherComponent({Key? key, required this.result}) : super(key: key);
 

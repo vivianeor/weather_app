@@ -1,36 +1,29 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:weather_app/features/home/data/datasource/current_weather.datasource.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/features/home/data/models/current_weather_result.model.dart';
+import 'package:weather_app/features/home/data/dto/current_weather.dto.dart';
 import 'package:weather_app/features/home/domain/entities/current_weather.entity.dart';
 
 class CurrentWeatherDatasourceImplApi implements ICurrentWeatherDatasource {
   @override
-  Future<Either<Error, CurrentWeatherResult>> getCurrentWeather(
+  Future<Either<Error, CurrentWeatherEntity>> getCurrentWeather(
       {required double? lat, required double? lon}) async {
     try {
-      var _authority = 'https://api.openweathermap.org';
-      var _path = '/data/2.5/weather';
-      var _params = {
-        'lat': lat,
-        'lon': lon,
-        'appid': '05b316695a6e5c9bc50b5b2e1350438e'
-      };
-      var uri = Uri.https(_authority, _path, _params);
-      dynamic _result = await http.get(Uri.parse(uri.toString()));
+      String _authority = 'https://api.openweathermap.org';
+      String _path = '/data/2.5/weather';
+      String _params = '?lat=$lat&lon=$lon&appid=05b316695a6e5c9bc50b5b2e1350438e';
+      dynamic _result = await http.get(Uri.parse(_authority + _path + _params));
 
-      if (_result.statusCode == 200){
-        final CurrentWeatherResult currentWeatherResult = CurrentWeatherResultModel.fromMap(_result.body);
-        return Right<Error, CurrentWeatherResult>(currentWeatherResult);
+      if (_result.statusCode == 200) {
+        return Right(
+            CurrentWeatherDto.fromMap(_result.body));
       } else {
-        return Left<Error, CurrentWeatherResult>(Error());
+        return Left<Error, CurrentWeatherEntity>(Error());
       }
-    } catch (e){
-      (e) => e.toString();
-      return Left<Error, CurrentWeatherResult>(Error());
+    } catch (e) {
+      debugPrint(e.toString());
+      return Left<Error, CurrentWeatherEntity>(Error());
     }
   }
-  //rever o problema com o uri
-//https://docs.flutter.dev/cookbook/networking/fetch-data
-//https://stackoverflow.com/questions/66619895/dart-unhandled-exception-formatexception-invalid-radix-10-number-at-character
 }

@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ValueListenableBuilder<CurrentWeatherResult?>(
+      body: ValueListenableBuilder<CurrentWeatherEntity?>(
         valueListenable: controller.currentWeatherNotifier,
         builder: (context, currentWeatherResult, _) {
           return SizedBox(

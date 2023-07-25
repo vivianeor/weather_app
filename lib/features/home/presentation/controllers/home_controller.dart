@@ -10,7 +10,7 @@ class HomeController {
   final CurrentWeatherUseCaseImpl currentWeatherUseCaseImpl;
   HomeController(this.currentWeatherUseCaseImpl);
 
-  final ValueNotifier<CurrentWeatherResult?> currentWeatherNotifier = ValueNotifier(null);
+  final ValueNotifier<CurrentWeatherEntity?> currentWeatherNotifier = ValueNotifier(null);
 
   Future<void> getCurrentWeather() async {
     //try {
