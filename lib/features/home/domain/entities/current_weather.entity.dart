@@ -100,8 +100,8 @@ class Clouds {
 
 class Sys {
   String? country;
-  String? sunrise;
-  String? sunset;
+  int? sunrise;
+  int? sunset;
 
   Sys({
     this.country,
