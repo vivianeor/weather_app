@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:weather_app/features/home/data/datasource/current_weather.datasource.dart';
@@ -14,11 +16,14 @@ class CurrentWeatherDatasourceImplApi implements ICurrentWeatherDatasource {
       String _path = '/data/2.5/weather';
       String _params = '?lat=$lat&lon=$lon&appid=05b316695a6e5c9bc50b5b2e1350438e';
       dynamic _result = await http.get(Uri.parse(_authority + _path + _params));
-      print(_result.body);
 
       if (_result.statusCode == 200) {
+        final String responseBody = _result.body;
+        print(responseBody); // Imprimir o corpo da resposta para debug
+        final Map<String, dynamic> jsonResponse = json.decode(responseBody);
+
         return Right(
-            CurrentWeatherDto.fromJson(_result.body));
+            CurrentWeatherDto.fromJson(jsonResponse));
       } else {
         return Left<Error, CurrentWeatherEntity>(Error());
       }

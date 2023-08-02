@@ -38,6 +38,13 @@ class Coordinates  {
    this.lat,
    this.lon,
   });
+
+  factory Coordinates.fromJson(Map<String, dynamic> json) {
+    return Coordinates(
+      lon: json['lon'].toDouble(),
+      lat: json['lat'].toDouble(),
+    );
+  }
 }
 
 class Weather {
@@ -52,13 +59,22 @@ class Weather {
    this.description,
    this.icon,
   });
+
+  factory Weather.fromJson(Map<String, dynamic> json) {
+    return Weather(
+      id: json['id'],
+      main: json['main'],
+      description: json['description'],
+      icon: json['icon'],
+    );
+  }
 }
 
 class MainInformation {
   double? temp;
   double? feelsLike;
   double? tempMin;
-  double? temMax;
+  double? tempMax;
   int? pressure;
   int? humidity;
   int? seaLevel;
@@ -68,13 +84,25 @@ class MainInformation {
     this.temp,
     this.feelsLike,
     this.tempMin,
-    this.temMax,
+    this.tempMax,
     this.pressure,
     this.humidity,
     this.grndLevel,
     this.seaLevel
   });
 
+  factory MainInformation.fromJson(Map<String, dynamic> json) {
+    return MainInformation(
+      temp: json['temp'].toDouble(),
+      feelsLike: json['feels_like'].toDouble(),
+      tempMin: json['temp_min'].toDouble(),
+      tempMax: json['temp_max'].toDouble(),
+      pressure: json['pressure'],
+      humidity: json['humidity'],
+      seaLevel: json['sea_level'],
+      grndLevel: json['grnd_level'],
+    );
+  }
 }
 
 class Wind {
@@ -87,6 +115,14 @@ class Wind {
     this.deg,
     this.gust,
   });
+
+  factory Wind.fromJson(Map<String, dynamic> json) {
+    return Wind(
+      speed: json['speed'].toDouble(),
+      deg: json['deg'],
+      gust: json['gust'].toDouble(),
+    );
+  }
 }
 
 class Clouds {
@@ -96,6 +132,9 @@ class Clouds {
     this.all,
   });
 
+  factory Clouds.fromJson(Map<String, dynamic> json) {
+    return Clouds(all: json['all']);
+  }
 }
 
 class Sys {
@@ -108,4 +147,12 @@ class Sys {
     this.sunrise,
     this.sunset,
   });
+
+  factory Sys.fromJson(Map<String, dynamic> json) {
+    return Sys(
+      country: json['country'],
+      sunrise: json['sunrise'],
+      sunset: json['sunset'],
+    );
+  }
 }
