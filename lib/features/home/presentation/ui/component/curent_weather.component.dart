@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/core/enums/colors.dart';
 import 'package:weather_app/features/home/domain/entities/current_weather.entity.dart';
 import 'package:weather_app/features/home/presentation/ui/atoms/text_label_bold.dart';
@@ -26,14 +27,14 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                widget.result?.mainInformation?.temp.toString() ?? '',
+                showAsIntegerNumber(widget.result?.mainInformation?.temp),
                 style: GoogleFonts.poppins(
-                  textStyle: const TextStyle(fontSize: 190, height: 1.0),
+                  textStyle: const TextStyle(fontSize: 180, height: 1.0),
                 ),
               ),
-              const SizedBox(width: 10),
               const TextLabel(label: 'ºC'),
             ],
           ),
@@ -61,5 +62,10 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
         ],
       ),
     );
+  }
+
+  String showAsIntegerNumber(double? temperature) {
+    int truncateTemp = temperature != null ? temperature.truncate() ~/ 10 : 0;
+    return truncateTemp.toString();
   }
 }
