@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:weather_app/core/enums/colors.dart';
 import 'package:weather_app/features/home/domain/entities/current_weather.entity.dart';
 import 'package:weather_app/features/home/presentation/ui/atoms/text_label_bold.dart';
@@ -53,7 +52,9 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
                   children: [
                     TextLabel(label: 'feels like'),
                     const SizedBox(width: 10),
-                    TextLabelBold(label: '16º'),
+                    TextLabelBold(label: showAsIntegerNumber(widget.result?.mainInformation?.feelsLike)),
+                    const SizedBox(width: 1),
+                    TextLabel(label: 'ºC'),
                   ],
                 ),
               ],

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/home/domain/entities/current_weather.entity.dart';
 import '../atoms/text_label.dart';
 import '../atoms/text_label_bold.dart';
 
 class InfoCurrentWeatherComponent extends StatefulWidget {
-  const InfoCurrentWeatherComponent({Key? key}) : super(key: key);
+  CurrentWeatherEntity? result;
+
+  InfoCurrentWeatherComponent({Key? key, required this.result}) : super(key: key);
 
   @override
   State<InfoCurrentWeatherComponent> createState() => _InfoCurrentWeatherComponentState();
@@ -15,34 +18,33 @@ class _InfoCurrentWeatherComponentState extends State<InfoCurrentWeatherComponen
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Icon(Icons.ac_unit),
-                  SizedBox(width: 5),
-                  TextLabelBold(label: '24º'),
-                ],
-              ),
               SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextLabel(label: 'humidade'),
+                  TextLabel(label: 'min.'),
                   SizedBox(width: 5),
-                  TextLabelBold(label:'63%'),
+                  TextLabelBold(
+                      label:
+                          showAsIntegerNumber(widget.result?.mainInformation?.tempMin)),
+                  SizedBox(width: 1),
+                  TextLabel(label: 'º'),
                 ],
               ),
               SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextLabel(label:'uv index'),
+                  TextLabel(label: 'humidity'),
                   SizedBox(width: 5),
-                  TextLabelBold(label:'2'),
+                  TextLabelBold(
+                      label: '${widget.result?.mainInformation?.humidity.toString()}%',
+                  ),
                 ],
               ),
             ],
@@ -50,33 +52,36 @@ class _InfoCurrentWeatherComponentState extends State<InfoCurrentWeatherComponen
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Icon(Icons.ac_unit),
-                  SizedBox(width: 5),
-                  TextLabelBold(label: '11º'),
-                ],
-              ),
               SizedBox(height: 25),
               Row(
                 children: [
-                  TextLabel(label: 'vento'),
+                  TextLabel(label: 'max.'),
                   SizedBox(width: 5),
-                  TextLabelBold(label:'5 m/s'),
+                  TextLabelBold(
+                      label:
+                          showAsIntegerNumber(widget.result?.mainInformation?.tempMax)),
+                  SizedBox(width: 1),
+                  TextLabel(label: 'º'),
                 ],
               ),
               SizedBox(height: 15),
               Row(
                 children: [
-                  TextLabel(label:'pressão'),
+                  TextLabel(label: 'wind'),
                   SizedBox(width: 5),
-                  TextLabelBold(label:'764'),
+                  TextLabelBold(
+                      label: '${widget.result?.wind?.speed.toString()} m/s'),
                 ],
-              )
+              ),
             ],
           ),
         ],
       ),
     );
+  }
+
+  String showAsIntegerNumber(double? temperature) {
+    int truncateTemp = temperature != null ? temperature.truncate() ~/ 10 : 0;
+    return truncateTemp.toString();
   }
 }

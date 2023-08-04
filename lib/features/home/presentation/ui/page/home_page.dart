@@ -37,12 +37,12 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 80),
-                  child: Text('san franscisco',
+                  child: Text(currentWeatherResult?.name ?? '',
                       style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 18))),
                 ),
                 CurrentWeatherComponent(result: currentWeatherResult),
                 const Divider(),
-                InfoCurrentWeatherComponent(),
+                InfoCurrentWeatherComponent(result: currentWeatherResult),
                 const Divider(),
                 HourlyWeatherComponent(),
               ],
