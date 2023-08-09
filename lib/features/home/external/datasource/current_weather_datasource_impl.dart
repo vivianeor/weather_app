@@ -14,7 +14,7 @@ class CurrentWeatherDatasourceImplApi implements ICurrentWeatherDatasource {
     try {
       String _authority = 'https://api.openweathermap.org';
       String _path = '/data/2.5/weather';
-      String _params = '?lat=$lat&lon=$lon&appid=05b316695a6e5c9bc50b5b2e1350438e';
+      String _params = '?lat=$lat&lon=$lon&appid=05b316695a6e5c9bc50b5b2e1350438e&units=metric';
       dynamic _result = await http.get(Uri.parse(_authority + _path + _params));
 
       if (_result.statusCode == 200) {
