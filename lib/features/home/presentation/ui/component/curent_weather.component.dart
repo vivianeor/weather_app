@@ -7,9 +7,9 @@ import 'package:weather_app/features/home/presentation/ui/atoms/text_label_bold.
 import '../atoms/text_label.dart';
 
 class CurrentWeatherComponent extends StatefulWidget {
-  CurrentWeatherEntity? result;
+  final CurrentWeatherEntity? result;
 
-  CurrentWeatherComponent({Key? key, required this.result}) : super(key: key);
+  const CurrentWeatherComponent({Key? key, required this.result}) : super(key: key);
 
   @override
   State<CurrentWeatherComponent> createState() => _CurrentWeatherComponentState();
@@ -31,7 +31,7 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
               Text(
                 showAsIntegerNumber(widget.result?.mainInformation?.temp),
                 style: GoogleFonts.poppins(
-                  textStyle: const TextStyle(fontSize: 180, height: 1.0),
+                  textStyle: const TextStyle(fontSize: 140, height: 1.0),
                 ),
               ),
               const TextLabel(label: 'ºC'),
@@ -66,7 +66,7 @@ class _CurrentWeatherComponentState extends State<CurrentWeatherComponent> {
   }
 
   String showAsIntegerNumber(double? temperature) {
-    int truncateTemp = temperature != null ? temperature.truncate() ~/ 10 : 0;
+    int truncateTemp = temperature != null ? temperature.toInt() : 0;
     return truncateTemp.toString();
   }
 }

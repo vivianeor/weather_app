@@ -3,9 +3,6 @@ import 'package:weather_app/features/home/domain/entities/current_weather.entity
 import 'package:weather_app/features/home/domain/usecases/current_weather_usecase_impl.dart';
 import 'package:flutter/foundation.dart';
 
-//7min
-//https://www.youtube.com/watch?v=C_-ZKL52Xn8&list=PLlBnICoI-g-eG0eVkHu2IaO48TljxPjPq&index=2
-
 class HomeController {
   final CurrentWeatherUseCaseImpl currentWeatherUseCaseImpl;
   HomeController(this.currentWeatherUseCaseImpl);
@@ -13,16 +10,16 @@ class HomeController {
   final ValueNotifier<CurrentWeatherEntity?> currentWeatherNotifier = ValueNotifier(null);
 
   Future<void> getCurrentWeather() async {
-    //try {
+    try {
       //-22.74738502680759, -47.65850246994832
       final dynamic result = await currentWeatherUseCaseImpl.getCurrentWeather(
           lat: -22.74738502680759, lon: -47.65850246994832);
-      result.fold(
-        (error) => debugPrint(error.toString()),
+      await result.fold(
+        (error) => throw Exception(error),
         (success) => currentWeatherNotifier.value = success,
       );
-  //  } catch (e) {
-    //  debugPrint(e.toString());
-  //  }
+   } catch (e) {
+      throw Exception("Erro durante a obtenção do clima: $e");
+   }
   }
 }

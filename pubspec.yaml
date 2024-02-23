@@ -30,6 +30,7 @@ flutter:
   assets:
     - assets/animations/
     - assets/fonts/
+    - assets/image/
 
   fonts:
     - family: Lato Bold

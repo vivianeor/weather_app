@@ -4,9 +4,9 @@ import '../atoms/text_label.dart';
 import '../atoms/text_label_bold.dart';
 
 class InfoCurrentWeatherComponent extends StatefulWidget {
-  CurrentWeatherEntity? result;
+  final CurrentWeatherEntity? result;
 
-  InfoCurrentWeatherComponent({Key? key, required this.result}) : super(key: key);
+  const InfoCurrentWeatherComponent({Key? key, required this.result}) : super(key: key);
 
   @override
   State<InfoCurrentWeatherComponent> createState() => _InfoCurrentWeatherComponentState();
@@ -81,7 +81,7 @@ class _InfoCurrentWeatherComponentState extends State<InfoCurrentWeatherComponen
   }
 
   String showAsIntegerNumber(double? temperature) {
-    int truncateTemp = temperature != null ? temperature.truncate() ~/ 10 : 0;
+    int truncateTemp = temperature != null ? temperature.toInt() : 0;
     return truncateTemp.toString();
   }
 }
