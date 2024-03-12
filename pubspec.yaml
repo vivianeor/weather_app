@@ -18,11 +18,17 @@ dependencies:
   get_it: ^7.6.0
   geolocator: ^9.0.2
   intl: ^0.18.1
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/weatherapp.png"
 
 flutter:
   uses-material-design: true
