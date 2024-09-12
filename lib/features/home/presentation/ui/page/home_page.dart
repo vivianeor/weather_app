@@ -20,6 +20,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final controller = GetIt.instance<HomeController>();
   late final Future<void> initialization;
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController controllerText = TextEditingController();
 
   @override
   void initState() {
@@ -51,7 +53,15 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         padding: const EdgeInsets.symmetric(vertical: 80),
                         child: Text(currentWeatherResult?.name ?? '',
-                            style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 18))),
+                            style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(fontSize: 18))),
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'teste',
+                        ),
+                        controller: controllerText,
+
                       ),
                       CurrentWeatherComponent(result: currentWeatherResult),
                       const Divider(),
@@ -61,8 +71,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 );
-              }
-          );
+              });
         },
       ),
     );

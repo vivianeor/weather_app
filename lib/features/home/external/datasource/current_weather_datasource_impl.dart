@@ -32,4 +32,5 @@ class CurrentWeatherDatasourceImplApi implements ICurrentWeatherDatasource {
       return Left<Error, CurrentWeatherEntity>(Error());
     }
   }
+
 }
