@@ -11,6 +11,5 @@ https://www.youtube.com/watch?v=DEqhOtB4NAI
 
 - Fazer botao recarregar na tela de erro
 - Consulta por hora ou dia
-- Buscar por geo
 - Wipe com atualizacao pra busca
 - Ajuste UX
