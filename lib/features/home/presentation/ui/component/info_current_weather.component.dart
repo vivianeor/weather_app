@@ -16,32 +16,31 @@ class _InfoCurrentWeatherComponentState extends State<InfoCurrentWeatherComponen
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextLabel(label: 'min.'),
-                  SizedBox(width: 5),
+                  const TextLabel(label: 'min.'),
+                  const SizedBox(width: 5),
                   TextLabelBold(
                       label:
                           showAsIntegerNumber(widget.result?.mainInformation?.tempMin)),
-                  SizedBox(width: 1),
-                  TextLabel(label: 'º'),
+                  const SizedBox(width: 1),
+                  const TextLabel(label: 'º'),
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextLabel(label: 'humidity'),
-                  SizedBox(width: 5),
+                  const TextLabel(label: 'humidity'),
+                  const SizedBox(width: 5),
                   TextLabelBold(
                       label: '${widget.result?.mainInformation?.humidity.toString()}%',
                   ),
@@ -52,23 +51,23 @@ class _InfoCurrentWeatherComponentState extends State<InfoCurrentWeatherComponen
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               Row(
                 children: [
-                  TextLabel(label: 'max.'),
-                  SizedBox(width: 5),
+                  const TextLabel(label: 'max.'),
+                  const SizedBox(width: 5),
                   TextLabelBold(
                       label:
                           showAsIntegerNumber(widget.result?.mainInformation?.tempMax)),
-                  SizedBox(width: 1),
-                  TextLabel(label: 'º'),
+                  const SizedBox(width: 1),
+                  const TextLabel(label: 'º'),
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 children: [
-                  TextLabel(label: 'wind'),
-                  SizedBox(width: 5),
+                  const TextLabel(label: 'wind'),
+                  const SizedBox(width: 5),
                   TextLabelBold(
                       label: '${widget.result?.wind?.speed.toString()} m/s'),
                 ],

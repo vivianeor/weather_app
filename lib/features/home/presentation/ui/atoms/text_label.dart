@@ -16,7 +16,7 @@ class TextLabel extends StatelessWidget {
       label ?? '',
       style: GoogleFonts.poppins(
         textStyle: const TextStyle(fontSize: 16),
-        color: ColorsEnum.grey,
+        color: const Color.fromARGB(255, 117, 117, 117),
       ),
     );
   }
