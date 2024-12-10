@@ -41,7 +41,7 @@
 </ol>
 
 <h2>Screenshots</h2>
-![readme](https://github.com/user-attachments/assets/1df7dd1c-f777-4a15-9956-7808981865e4)
+<img src="https://github.com/user-attachments/assets/1df7dd1c-f777-4a15-9956-7808981865e4" alt="Weather App Screenshot" width="250">
 
 
 <h2>Contributions</h2>
@@ -49,7 +49,7 @@
 
 <h2>Contact</h2>
 <ul>
-    <li><strong>Author:</strong> Viviane ROdrigues/li>
+    <li><strong>Author:</strong> Viviane Rodrigues</li>
     <li><strong>Email:</strong> viviane.oliveira280@hotmail.com</li>
 </ul>
 
