@@ -6,7 +6,6 @@ import 'package:weather_app/core/enums/colors.dart';
 import 'package:weather_app/features/home/presentation/controllers/home_controller.dart';
 import 'package:weather_app/features/home/presentation/ui/component/curent_weather.component.dart';
 import 'package:weather_app/features/home/presentation/ui/component/error.component.dart';
-import 'package:weather_app/features/home/presentation/ui/component/info_current_weather.component.dart';
 
 import '../../../domain/entities/current_weather.entity.dart';
 
@@ -21,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   final controller = GetIt.instance<HomeController>();
   late final Future<void> initialization;
   TextEditingController controllerText = TextEditingController();
-  String formattedDate = DateFormat('EEEE, dd MMM.').format(DateTime.now());
+  String formattedDate = DateFormat('EEEE, dd MMM').format(DateTime.now());
 
   @override
   void initState() {
@@ -79,12 +78,13 @@ class _HomePageState extends State<HomePage> {
                           return Column(
                             children: [
                               Container(
-                                height: MediaQuery.of(context).size.height * 0.20,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
                                 padding:
-                                    const EdgeInsets.symmetric(vertical: 30),
-                                    color: Colors.green,
+                                    const EdgeInsets.symmetric(vertical: 15),
                                 child: Column(
                                   children: [
+                                    const SizedBox(height: 20),
                                     Row(
                                       children: [
                                         const Icon(Icons.location_on,
@@ -115,14 +115,11 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               Flexible(
-                                child: Container(
-                                  //height: MediaQuery.of(context).size.height * 0.3,
-                                  color: Colors.blue,
-                                  child: CurrentWeatherComponent(
-                                      result: currentWeatherResult),
+                                child: CurrentWeatherComponent(
+                                  result: currentWeatherResult,
+                                  controller: controller,
                                 ),
                               ),
-                             
                             ],
                           );
                         },
