@@ -1,4 +1,6 @@
-<p>Welcome to the Weather App! This project uses the OpenWeatherMap API to provide real-time weather information for cities around the world.</p> 🌦️
+<h3>Welcome to the Weather App!<h2> 🌦️
+
+<p>This project uses the OpenWeatherMap API to provide real-time weather information for cities around the world.</p>
 
 <h2>Features</h2>
 <ul>
