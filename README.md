@@ -1,4 +1,4 @@
-<h3>Welcome to the Weather App!<h2> 🌦️
+<h3>Welcome to the Weather App!</h3> 🌦️
 
 <p>This project uses the OpenWeatherMap API to provide real-time weather information for cities around the world.</p>
 
